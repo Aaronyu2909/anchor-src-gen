@@ -22,7 +22,7 @@ tabLength=2;
 sourceDirectory="src/main/java";
 outputModuleName="";
 basePackageName="$package";
-rpc="";
+rpc="https://mainnet.helius-rpc.com/?api-key=7042f679-0992-47a1-a2eb-800c317a47ec";
 programs="./main_net_programs.json";
 numThreads=5;
 baseDelayMillis=200;
@@ -79,7 +79,7 @@ do
   fi
 done
 
-javaVersion=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}' | grep -oEi '^[0-9]+')
+javaVersion=$(jenv exec java -version 2>&1 | awk -F '"' '/version/ {print $2}' | grep -oEi '^[0-9]+')
 readonly javaVersion
 if [[ "$javaVersion" -ne "$targetJavaVersion" ]]; then
   echo "Invalid Java version $javaVersion must be $targetJavaVersion."

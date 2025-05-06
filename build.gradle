@@ -27,6 +27,18 @@ plugins.withType(JavaPlugin).configureEach {
   }
 }
 
+tasks.withType(JavaCompile).configureEach {
+  javaCompiler = javaToolchains.compilerFor {
+    languageVersion = JLV
+  }
+}
+
+tasks.withType(Test).configureEach {
+  javaLauncher = javaToolchains.launcherFor {
+    languageVersion = JLV
+  }
+}
+
 repositories {
   maven {
     url = "https://maven.pkg.github.com/comodal/json-iterator"
@@ -138,10 +150,10 @@ afterEvaluate {
   jlink {
     imageName.set(project.name)
     options.addAll(List.of(
-        '--bind-services',
-        '--no-man-pages',
-        '--no-header-files',
-        '--ignore-signing-information'
+            '--bind-services',
+            '--no-man-pages',
+            '--no-header-files',
+            '--ignore-signing-information'
     ))
     enableCds()
   }

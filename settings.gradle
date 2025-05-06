@@ -10,11 +10,11 @@ dependencyResolutionManagement {
       url = "https://maven.pkg.github.com/sava-software/solana-version-catalog"
       credentials {
         username = gprUser != null && gprUser.isPresent()
-            ? gprUser.get()
-            : System.getProperty("gpr.user", System.getenv("GITHUB_ACTOR"))
+                ? gprUser.get()
+                : System.getProperty("gpr.user", System.getenv("GITHUB_ACTOR"))
         password = gprToken != null && gprToken.isPresent()
-            ? gprToken.get()
-            : System.getProperty("gpr.token", System.getenv("GITHUB_TOKEN"))
+                ? gprToken.get()
+                : System.getProperty("gpr.token", System.getenv("GITHUB_TOKEN"))
       }
     }
   }
