@@ -3,7 +3,7 @@ plugins {
 }
 
 ext {
-  VERSION = project.findProperty('version')
+  VERSION = '1.0.0-SNAPSHOT'
   VCS_URL = 'https://github.com/sava-software/anchor-src-gen'
 }
 
@@ -135,6 +135,10 @@ publishing {
   }
 
   repositories {
+    maven {
+      name = "local"
+      url = "${rootProject.projectDir}/build/repo"
+    }
     maven {
       name = "GitHubPackages"
       url = "https://maven.pkg.github.com/sava-software/anchor-src-gen"
